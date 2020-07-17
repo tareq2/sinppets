@@ -22,10 +22,10 @@ AutoMapper.Mapper.CreateMap<User, Patient>().ForMember(dest => dest.PatientID, o
 
 You can also map your objects based upon the condition. Let’s say we have the same two classes User and UserEntity and I have mapped the UserName to UserDetails only if it Contains Kovai.Co. So it can be done as,
 
-CreateMap<User, UserEntity>()
+     CreateMap<User, UserEntity>()
     .ForMember(d => d.Id, op => op.MapFrom(ex => ex.UserId))
     .ForMember(d => d.UserDetails, op => op.Condition(src => src.UserName.Contains("Kovai.Co")));
     
  ## Null Substitution
- CreateMap<Source, Dest>()
+     CreateMap<Source, Dest>()
     .ForMember(destination => destination.Value, opt => opt.NullSubstitute("Any other values")));
